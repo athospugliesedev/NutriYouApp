@@ -1,3 +1,4 @@
+import { NativeBaseProvider } from 'native-base';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {
@@ -22,6 +23,7 @@ import {
   Poppins_900Black_Italic,
 } from '@expo-google-fonts/poppins';
 import Splash from './src/screens/Splash/Index';
+import { THEME } from './src/theme';
 
 
 export default function App() {
@@ -47,9 +49,12 @@ export default function App() {
   });
 
   return (
+    <NativeBaseProvider theme={THEME}>
+
+    
     <View>
       {fontsLoaded ? <Splash /> : <Text>N ta rodando</Text> }
     </View>
-    
+    </NativeBaseProvider>
   );
 }
